@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/entryFragment">
+    <fragment
+        android:id="@+id/entryFragment"
+        android:name="pl.doz.kryptoapp.view.EntryFragment"
+        android:label="fragment_entry"
+        tools:layout="@layout/fragment_entry" >
+        <action
+            android:id="@+id/action_entryFragment_to_cryptoFragment"
+            app:destination="@id/cryptoFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/cryptoFragment"
+        android:name="pl.doz.kryptoapp.view.CryptoFragment"
+        android:label="CryptoFragment"
+        tools:layout="@layout/crypto_main">
+        <action
+            android:id="@+id/action_cryptoFragment_to_coinViewFragment"
+            app:destination="@id/coinViewFragment">
+        </action>
+    </fragment>
+    <fragment
+        android:id="@+id/coinViewFragment"
+        android:name="pl.doz.kryptoapp.view.CoinViewFragment"
+        android:label="CoinViewFragment"
+        tools:layout="@layout/coin_view">
+
+
+    <argument
+        android:name="selectedCrypto"
+        app:argType="string" />
+    </fragment>
+</navigation>

@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="coin"
+            type="pl.doz.kryptoapp.model.CoinModel" />
+        <variable
+            name="coinValue"
+            type="pl.doz.kryptoapp.model.CoinValueModel" />
+    </data>
+
+    <ScrollView
+        android:id="@+id/coinScroll"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/rankTitle"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:text="Rank"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:textSize="18dp"
+                app:layout_constraintBottom_toBottomOf="@+id/symbolTitle"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/symbolTitle"
+                app:layout_constraintTop_toTopOf="@+id/symbolTitle" />
+
+            <TextView
+                android:id="@+id/coinRank"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginTop="16dp"
+                android:text="@{String.valueOf(coin.rank)}"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:textStyle="italic"
+                app:layout_constraintEnd_toEndOf="@+id/rankTitle"
+                app:layout_constraintStart_toStartOf="@+id/rankTitle"
+                app:layout_constraintTop_toBottomOf="@+id/rankTitle" />
+
+            <TextView
+                android:id="@+id/coinName"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="12dp"
+                android:layout_marginEnd="16dp"
+                android:text="@{coin.name}"
+                android:textSize="32sp"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/coinImage"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_marginTop="16dp"
+                android:scaleType="centerCrop"
+                app:layout_constraintEnd_toEndOf="@+id/coinName"
+                app:layout_constraintHorizontal_bias="0.498"
+                app:layout_constraintStart_toStartOf="@+id/coinName"
+                app:layout_constraintTop_toBottomOf="@+id/coinName"
+                tools:srcCompat="@tools:sample/avatars" />
+
+            <CalendarView
+                android:id="@+id/coinDate"
+                android:layout_width="353dp"
+                android:layout_height="367dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/coinDescription" />
+
+            <TextView
+                android:id="@+id/idTitle"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:text="Id"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:textSize="18dp"
+                app:layout_constraintEnd_toStartOf="@id/symbolTitle"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/coinImage" />
+
+            <TextView
+                android:id="@+id/coinType"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="@{coin.type}"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:textStyle="italic"
+                app:layout_constraintEnd_toEndOf="@+id/typeTitle"
+                app:layout_constraintStart_toStartOf="@+id/typeTitle"
+                app:layout_constraintTop_toBottomOf="@+id/typeTitle" />
+
+            <TextView
+                android:id="@+id/typeTitle"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginTop="16dp"
+                android:text="Type"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:textSize="18dp"
+                app:layout_constraintEnd_toEndOf="@+id/coinIdText"
+                app:layout_constraintStart_toStartOf="@+id/coinIdText"
+                app:layout_constraintTop_toBottomOf="@+id/coinIdText" />
+
+            <TextView
+                android:id="@+id/descriptionTitle"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:layout_marginTop="16dp"
+                android:gravity="center"
+                android:text="Description"
+                android:textSize="18dp"
+                app:layout_constraintEnd_toEndOf="@+id/coinType"
+                app:layout_constraintStart_toStartOf="@+id/coinType"
+                app:layout_constraintTop_toBottomOf="@+id/coinHP" />
+
+            <TextView
+                android:id="@+id/coinDescription"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="@{coin.description}"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:textStyle="italic"
+                app:layout_constraintEnd_toEndOf="@+id/coinVolume"
+                app:layout_constraintStart_toStartOf="@+id/coinHP"
+                app:layout_constraintTop_toBottomOf="@+id/coinHP" />
+
+            <TextView
+                android:id="@+id/coinHP"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginTop="16dp"
+                android:text="@{String.valueOf(coinValue.high)}"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:textStyle="italic"
+                app:layout_constraintEnd_toEndOf="@+id/hpTitle"
+                app:layout_constraintStart_toStartOf="@+id/hpTitle"
+                app:layout_constraintTop_toBottomOf="@+id/hpTitle" />
+
+            <TextView
+                android:id="@+id/coinIdText"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginTop="16dp"
+                android:text="@{coin.id}"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:textStyle="italic"
+                app:layout_constraintEnd_toEndOf="@+id/idTitle"
+                app:layout_constraintStart_toStartOf="@+id/idTitle"
+                app:layout_constraintTop_toBottomOf="@+id/idTitle" />
+
+            <TextView
+                android:id="@+id/coinSymbol"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginTop="16dp"
+                android:text="@{coin.symbol}"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:textStyle="italic"
+                app:layout_constraintEnd_toEndOf="@+id/symbolTitle"
+                app:layout_constraintStart_toStartOf="@+id/symbolTitle"
+                app:layout_constraintTop_toBottomOf="@+id/symbolTitle" />
+
+            <TextView
+                android:id="@+id/symbolTitle"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginStart="16dp"
+                android:text="Symbol"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:textSize="18dp"
+                app:layout_constraintBottom_toBottomOf="@+id/idTitle"
+                app:layout_constraintStart_toEndOf="@+id/idTitle"
+                app:layout_constraintEnd_toStartOf="@id/rankTitle"
+                app:layout_constraintTop_toTopOf="@+id/idTitle" />
+
+            <TextView
+                android:id="@+id/hpTitle"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginTop="16dp"
+                android:text="Highest price"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:textSize="18dp"
+                app:layout_constraintEnd_toEndOf="@+id/coinSymbol"
+                app:layout_constraintStart_toStartOf="@+id/coinSymbol"
+                app:layout_constraintTop_toBottomOf="@+id/coinSymbol" />
+
+            <TextView
+                android:id="@+id/coinVolume"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginTop="16dp"
+                android:text="@{String.valueOf(coinValue.volume)"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:textStyle="italic"
+                app:layout_constraintEnd_toEndOf="@+id/volumeTitle"
+                app:layout_constraintStart_toStartOf="@+id/volumeTitle"
+                app:layout_constraintTop_toBottomOf="@+id/volumeTitle" />
+
+            <TextView
+                android:id="@+id/volumeTitle"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginTop="16dp"
+                android:text="Volume"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:textSize="18dp"
+                app:layout_constraintEnd_toEndOf="@+id/coinRank"
+                app:layout_constraintStart_toStartOf="@+id/coinRank"
+                app:layout_constraintTop_toBottomOf="@+id/coinRank" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
+</layout>

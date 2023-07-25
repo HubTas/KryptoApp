@@ -1,0 +1,19 @@
+package pl.doz.kryptoapp.model
+
+data class CryptoDTO(
+    val id: String,
+    val is_active: Boolean,
+    val is_new: Boolean,
+    val name: String,
+    val rank: Int,
+    val symbol: String,
+    val type: String
+)
+
+fun CryptoDTO.toCryptoModel(): CryptoModel {
+    return CryptoModel(
+        name = name,
+        rank = rank,
+        id = id
+    )
+}
